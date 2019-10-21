@@ -1,0 +1,58 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="{% block meta_description %}{% endblock meta_description %}">
+	<meta name="author" content="{% block meta_author %}{% endblock %}">
+	<title>{% block title %} Site Title {% endblock %}</title>
+	
+	<!-- Custom fonts for this template-->
+	<link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	
+	<!-- Custom styles for this template-->
+	<link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cqms.css' %}" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+	
+	{% include "includes/sidebar.html" %}	
+	
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+      
+		{% include "includes/topnavbar.html" %}	
+		
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+			{% block pagecontent %}
+				{% include "layout/page.html" %}	
+			{% endblock pagecontent %}          
+        </div>
+       </div>
+      <!-- End of Main Content -->
+
+      {% include "includes/copyright.html"%}
+      
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+  
+  {% include "includes/footer.html"%}  
+  
+</body>
+</html>
