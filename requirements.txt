@@ -1,7 +1,7 @@
-django>=2.2.6
-django-bootstrap4>=1.0.1
+django
+django-bootstrap4
 django-heroku
-gunicorn>=19.9.0
-psycopg2>=2.8.3
+gunicorn
+psycopg2
 requests
-django-sb-admin
+django-adminlte2

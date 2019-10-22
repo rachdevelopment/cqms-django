@@ -30,17 +30,21 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
+    'apps.homepage',
+    'apps.customers',
+
+    # general purpose templates
+    'django_adminlte',
+
+    # skin for admin interface
+    'django_adminlte_theme',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'django_sb_admin',
-    
-    'apps.homepage',
-    'apps.customers',
 ]
 
 MIDDLEWARE = [
