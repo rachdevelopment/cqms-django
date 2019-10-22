@@ -15,13 +15,26 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
 from django.urls import path
 from django.views.generic.base import TemplateView
 
+from apps.dashboard import views as dashboard_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # the regex ^$ matches empty
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
-    url(r'^django-sb-admin/', include('django_sb_admin.urls')),
+    url( 'login/',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
+    url( 'logout/', auth_views.LogoutView.as_view(), name='logout'),
     
+    #url( r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^$', login_required(dashboard_views.IndexView.as_view()), name='home'),
+    path('dashboard/', include('apps.dashboard.urls')),
+    path('scheduling/', include('apps.scheduling.urls')),
+    path('quotes/', include('apps.quotes.urls')),
+    path('jobs/', include('apps.jobs.urls')),
+    path('customers/', include('apps.customers.urls')),
+    path('suppliers/', include('apps.suppliers.urls')),
+    path('reports/', include('apps.reports.urls')),
+    path('invoices/', include('apps.invoices.urls')),
 ]

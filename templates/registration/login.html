@@ -1,0 +1,9 @@
+{% extends "adminlte/login.html" %}
+{% block logo_text %}Login2{% endblock %}
+{% block form %}
+	  <form method="post">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <button type="submit">Login</button>
+	  </form>
+{% endblock %}

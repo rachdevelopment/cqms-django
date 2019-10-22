@@ -1,0 +1,54 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+{% load static %}
+
+{% block nav_links %}
+	{% url 'dashboard:index' as dashboard %}
+	{% url 'scheduling:index' as scheduling %}
+	{% url 'quotes:index' as quotes %}
+	{% url 'jobs:index' as jobs %}
+	{% url 'invoices:index' as invoices %}
+	{% url 'customers:index' as customers %}
+	{% url 'suppliers:index' as suppliers %}
+	{% url 'reports:index' as reports %}
+  
+    <li {% if request.path == dashboard %}class="active"{% endif %}>
+        <a href="{{ dashboard }}" >
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+    </li>
+    <li {% if request.path == scheduling %}class="active"{% endif %}>
+        <a href="{{ scheduling }}" >
+            <i class="fa fa-calendar"></i> <span>Schedule</span>
+        </a>
+    </li>
+    <li {% if request.path == quotes %}class="active"{% endif %}>
+        <a href="{{ quotes }}" >
+            <i class="fa fa-file-text"></i> <span>Quotes</span>
+        </a>
+    </li>
+    <li {% if request.path == jobs %}class="active"{% endif %}>
+        <a href="{{ jobs }}">
+            <i class="fa fa-wrench"></i> <span>Jobs</span>
+        </a>
+    </li>
+    <li {% if request.path == invoices %}class="active"{% endif %}>
+        <a href="{{ invoices }}">
+            <i class="fa fa-dollar"></i> <span>Invoices</span>
+        </a>
+    </li>
+    <li {% if request.path == customers %}class="active"{% endif %}>
+        <a href="{{ customers }}">
+            <i class="fa fa-users"></i> <span>Customers</span>
+        </a>
+    </li>
+    <li {% if request.path == suppliers %}class="active"{% endif %}>
+        <a href="{{ suppliers }}">
+            <i class="fa fa-truck"></i> <span>Suppliers</span>
+        </a>
+    </li>
+    <li {% if request.path == reports %}class="active"{% endif %}>
+        <a href="{{ reports }}">
+            <i class="fa fa-bar-chart"></i> <span>Reports</span>
+        </a>
+    </li>
+{% endblock nav_links %}

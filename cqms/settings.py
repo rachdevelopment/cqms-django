@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+from telnetlib import LOGOUT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,8 +31,14 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
-    'apps.homepage',
+    'apps.dashboard',  
+    'apps.scheduling',  
+    'apps.quotes',
+    'apps.jobs',
     'apps.customers',
+    'apps.suppliers',
+    'apps.invoices',
+    'apps.reports',
 
     # general purpose templates
     'django_adminlte',
@@ -131,5 +138,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+
+#LOGOUT_REDIRECT_URL = 'logout'
 
 django_heroku.settings(locals())

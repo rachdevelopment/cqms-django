@@ -1,0 +1,160 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block page_name %}Dashboard{% endblock %}
+	   
+{% block content %}
+	
+	{% url 'quotes:index' as quotes %}
+	
+	<!-- DAILY STATS  -->
+	<div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>30</h3>
+              <p>New orders created today</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>10</h3>
+              <p>Quote follow-ups due today</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>80%</h3>
+              <p>DIFOT today</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>20</h3>
+              <p>Orders due today</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+	
+	
+	<!-- TABLE: LATEST ORDERS -->
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Latest Orders</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>          
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="table-responsive">
+          <table class="table no-margin">
+            <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Required Date</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><a href="{{ quotes }}">OR9842</a></td>
+              <td>Steelstruct</td>
+              <td>$10,000</td>
+              <td>10/10/2019</td>
+              <td><span class="label label-danger">Production</span></td>              
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR1848</a></td>
+              <td>Orontide</td>
+              <td>$20,000</td>
+              <td>27/11/2019</td>
+              <td><span class="label label-success">Planning</span></td> 
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR7429</a></td>
+              <td>Safety Barriers WA</td>
+              <td>$1,000</td>
+              <td>10/12/2019</td>
+              <td><span class="label label-success">Waiting Despatch</span></td>
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR7429</a></td>
+              <td>Crushing Services International</td>
+              <td>$5,000</td>
+              <td>04/11/2019</td>
+              <td><span class="label label-warning">Waiting Material</span></td>
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR1848</a></td>
+               <td>Steelstruct</td>
+              <td>$14,000</td>
+              <td>15/11/2019</td>
+              <td><span class="label label-warning">On Hold</span></td>
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR7429</a></td>
+               <td>Boyd Metal Industries</td>
+              <td>$7,000</td>
+              <td>28/10/2019</td>
+              <td><span class="label label-warning">Waiting Despatch</span></td>
+            </tr>
+            <tr>
+              <td><a href="{{ quotes }}">OR9842</a></td>
+               <td>Steelstruct</td>
+              <td>$10,000</td>
+              <td>10/12/2019</td>
+              <td><span class="label label-success">Production</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix">
+        <a href="{{ quotes }}" class="btn btn-sm btn-info btn-flat pull-left">Create New Quote</a>
+        <a href="{{ quotes }}" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+	
+    
+{% endblock %}
