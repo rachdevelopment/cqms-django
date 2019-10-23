@@ -68,7 +68,7 @@
       </div>
       <!-- /.row -->
 	
-	
+
 	<!-- TABLE: LATEST ORDERS -->
     <div class="box box-info">
       <div class="box-header with-border">
@@ -84,6 +84,7 @@
         <div class="table-responsive">
           <table class="table no-margin">
             <thead>
+            {% if latest_orders_list %}		
             <tr>
               <th>Order ID</th>
               <th>Customer</th>
@@ -91,58 +92,24 @@
               <th>Required Date</th>
               <th>Status</th>
             </tr>
+            {% else %}
+            {% endif %}
             </thead>
-            <tbody>
-            <tr>
-              <td><a href="{{ quotes }}">OR9842</a></td>
-              <td>Steelstruct</td>
-              <td>$10,000</td>
-              <td>10/10/2019</td>
-              <td><span class="label label-danger">Production</span></td>              
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR1848</a></td>
-              <td>Orontide</td>
-              <td>$20,000</td>
-              <td>27/11/2019</td>
-              <td><span class="label label-success">Planning</span></td> 
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR7429</a></td>
-              <td>Safety Barriers WA</td>
-              <td>$1,000</td>
-              <td>10/12/2019</td>
-              <td><span class="label label-success">Waiting Despatch</span></td>
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR7429</a></td>
-              <td>Crushing Services International</td>
-              <td>$5,000</td>
-              <td>04/11/2019</td>
-              <td><span class="label label-warning">Waiting Material</span></td>
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR1848</a></td>
-               <td>Steelstruct</td>
-              <td>$14,000</td>
-              <td>15/11/2019</td>
-              <td><span class="label label-warning">On Hold</span></td>
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR7429</a></td>
-               <td>Boyd Metal Industries</td>
-              <td>$7,000</td>
-              <td>28/10/2019</td>
-              <td><span class="label label-warning">Waiting Despatch</span></td>
-            </tr>
-            <tr>
-              <td><a href="{{ quotes }}">OR9842</a></td>
-               <td>Steelstruct</td>
-              <td>$10,000</td>
-              <td>10/12/2019</td>
-              <td><span class="label label-success">Production</span></td>
-            </tr>
-            </tbody>
+            <tbody>  	    
+            {% if latest_orders_list %}	
+				    {% for quote in latest_orders_list %}			
+				      <tr>	        
+			              <td><a href="{{ quotes }}">{{ quote.id }}</a></td>
+			              <td>{{ quote.customer_name }}</td>
+			              <td>{{ quote.subtotal }}</td>
+			              <td>{{ quote.delivery_due_date }}</td>
+			              <td><span class="label">{{ quote.status }}</span></td>    
+			          </tr>
+				    {% endfor %}				    
+				{% else %}
+				    <p>No recent orders.</p>
+				{% endif %}
+			</tbody>
           </table>
         </div>
         <!-- /.table-responsive -->
@@ -155,6 +122,7 @@
       <!-- /.box-footer -->
     </div>
     <!-- /.box -->
+			
 	
     
 {% endblock %}

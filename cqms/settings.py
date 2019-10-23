@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
+    'djmoney',
+    
     'apps.dashboard',  
     'apps.scheduling',  
     'apps.quotes',
@@ -124,7 +126,7 @@ TIME_ZONE = 'Australia/Perth'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -143,6 +145,7 @@ LOGOUT_URL = 'logout'
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
-#LOGOUT_REDIRECT_URL = 'logout'
+DATE_FORMAT = 'j/n/Y'
+DATETIME_FORMAT = 'j/n/Y f a'
 
 django_heroku.settings(locals())

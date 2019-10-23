@@ -1,7 +1,8 @@
 django
-django-bootstrap4
 django-heroku
 gunicorn
-psycopg2
 requests
+psycopg2
+django-bootstrap4
 django-adminlte2
+django-money

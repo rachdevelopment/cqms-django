@@ -3,5 +3,56 @@
 
 
 {% block content %}
-    Quotes content
+
+	<!-- TABLE: LATEST ORDERS -->
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Latest Orders</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>          
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="table-responsive">
+          <table class="table no-margin">
+            <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Required Date</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>    
+				{% if latest_quotes_list %}				    
+				    {% for quote in latest_quotes_list %}			
+				      <tr>	        
+			              <td><a href="{{ quotes }}">{{ quote.id }}</a></td>
+			              <td>{{ quote.customer_name }}</td>
+			              <td>{{ quote.subtotal }}</td>
+			              <td>{{ quote.delivery_due_date }}</td>
+			              <td><span class="label">{{ quote.status }}</span></td>    
+			          </tr>
+				    {% endfor %}				    
+				{% else %}
+				    <p>No recent quotes.</p>
+				{% endif %}
+			</tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix">
+        <a href="{{ quotes }}" class="btn btn-sm btn-info btn-flat pull-left">Create New Quote</a>
+        <a href="{{ quotes }}" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+			
 {% endblock %}
