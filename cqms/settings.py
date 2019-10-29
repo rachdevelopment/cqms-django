@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 INSTALLED_APPS = [
     'djmoney',
+    'softdelete',
     
     'apps.dashboard',  
     'apps.scheduling',  
@@ -41,7 +42,10 @@ INSTALLED_APPS = [
     'apps.suppliers',
     'apps.invoices',
     'apps.reports',
-
+    
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
+    
     # general purpose templates
     'django_adminlte',
 
@@ -72,7 +76,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
+        #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -80,12 +84,20 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': [
+                  'django.template.loaders.filesystem.Loader',
+                  'django.template.loaders.app_directories.Loader',
+            ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'cqms.wsgi.application'
 
+# Use BOOTSTRAP3 if you are using Bootstrap 3
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

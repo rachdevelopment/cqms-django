@@ -1,8 +1,11 @@
 django
+django-money
+django-model-utils
+django-softdelete
 django-heroku
 gunicorn
 requests
 psycopg2
 django-bootstrap4
+django-bootstrap-datepicker-plus
 django-adminlte2
-django-money
