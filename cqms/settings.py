@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+import moneyed
+
 from telnetlib import LOGOUT
+from moneyed.localization import _FORMATTER
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,7 +108,7 @@ BOOTSTRAP4 = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3_3'),
     }
 }
 
@@ -159,5 +162,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 
 DATE_FORMAT = 'j/n/Y'
 DATETIME_FORMAT = 'j/n/Y f a'
+
+_FORMATTER.add_sign_definition('default', moneyed.AUD, suffix = '', prefix = '$')
 
 django_heroku.settings(locals())

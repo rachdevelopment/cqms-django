@@ -7,8 +7,6 @@ from .models import Customer
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['customer_name', 'created_date', 'status']
-        widgets = {
-            'created_date': DatePickerInput(format='%d/%m/%Y'),    
-        }
+        fields = ['customer_name', 'status']
+        
 

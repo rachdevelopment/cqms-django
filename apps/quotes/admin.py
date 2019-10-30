@@ -4,12 +4,12 @@ from .models import Quote
 
 class QuoteAdmin(admin.ModelAdmin): 
     fieldsets = [
-        (None,               {'fields': ['customer_name', 'customer_order_number', 'status', 'subtotal']}),
+        (None,               {'fields': ['customer', 'customer_order_number', 'status', 'subtotal']}),
         ('Date information', {'fields': ['ordered_date', 'delivery_due_date']}),
     ]    
-    list_display = ('customer_name', 'customer_order_number', 'status', 'subtotal', 'created', 'ordered_date', 'delivery_due_date')
+    list_display = ('customer', 'customer_order_number', 'status', 'subtotal', 'created', 'ordered_date', 'delivery_due_date')
     list_filter = [ 'created', 'ordered_date', 'delivery_due_date']
-    search_fields = ['customer_name', 'customer_order_number', 'status']
+    search_fields = ['customer', 'customer_order_number', 'status']
 
 
 admin.site.register(Quote, QuoteAdmin)

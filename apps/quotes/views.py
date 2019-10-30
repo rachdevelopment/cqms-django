@@ -13,7 +13,7 @@ class IndexView(ListView):
         """ 
         Return the 10 most recently created quotes
         """
-        return Quote.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:10]
+        return Quote.objects.order_by('-created')[:10]
     
     
 class QuoteCreateView(FormView):
